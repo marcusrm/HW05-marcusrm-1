@@ -39,6 +39,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;..\include;</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -75,16 +76,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Controller.cpp" />
+    <ClCompile Include="..\src\ListGraph.cpp" />
+    <ClCompile Include="..\src\MatrixGraph.cpp" />
     <ClCompile Include="..\src\StarbucksMap.cpp" />
     <ClCompile Include="..\src\Tester.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\header\Graph.h" />
-    <ClInclude Include="..\header\GraphAlgs.h" />
-    <ClInclude Include="..\header\ListGraph.h" />
-    <ClInclude Include="..\header\MatrixGraph.h" />
-    <ClInclude Include="..\header\StarbucksMap.h" />
-    <ClInclude Include="..\header\Tester.h" />
+    <ClInclude Include="..\include\Graph.h" />
+    <ClInclude Include="..\include\GraphAlgs.h" />
+    <ClInclude Include="..\include\ListGraph.h" />
+    <ClInclude Include="..\include\MatrixGraph.h" />
+    <ClInclude Include="..\include\StarbucksMap.h" />
+    <ClInclude Include="..\include\Tester.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

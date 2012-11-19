@@ -24,24 +24,30 @@
     <ClCompile Include="..\src\Tester.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\MatrixGraph.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ListGraph.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\header\Graph.h">
+    <ClInclude Include="..\include\Graph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\header\GraphAlgs.h">
+    <ClInclude Include="..\include\GraphAlgs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\header\ListGraph.h">
+    <ClInclude Include="..\include\ListGraph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\header\MatrixGraph.h">
+    <ClInclude Include="..\include\MatrixGraph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\header\StarbucksMap.h">
+    <ClInclude Include="..\include\StarbucksMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\header\Tester.h">
+    <ClInclude Include="..\include\Tester.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
