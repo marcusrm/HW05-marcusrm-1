@@ -6,7 +6,7 @@
 
 MatrixGraph::MatrixGraph(unsigned int num_nodes){
 
-	this->num_edges = num_nodes * (num_nodes - 1) / 2;
+	//this->num_edges = num_nodes * (num_nodes - 1) / 2;
 
 	//create our matrix and zero it out
 	for(int i = 0; i < num_nodes; i++){
@@ -21,13 +21,19 @@ MatrixGraph::MatrixGraph(unsigned int num_nodes){
 }
 
 MatrixGraph::~MatrixGraph(){
-	delete &M;
+
+	for(int i = 0; i < this->M.size(); i++){
+		(this->M).pop_back();
+	}
+
+
 }
 
 // Modifiers
 void MatrixGraph::addEdge(NodeID u, NodeID v, EdgeWeight weight){
 
 	((this->M).at(u)).at(v) = weight;
+	((this->M).at(v)).at(u) = weight;
 
 }
   
@@ -71,14 +77,7 @@ unsigned MatrixGraph::degree(NodeID u) const{
 
 unsigned MatrixGraph::size() const{
 
-	unsigned max = 0;
-
-	for(int i = 0; i < this->M.size(); i++){
-		if((this->M.at(i)).size() > max)
-			max = this->M.at(i).size();
-	}
-
-	return (this->M).size() * max;
+	return (this->M).size();
 }
 
 unsigned MatrixGraph::numEdges() const{
@@ -86,14 +85,16 @@ unsigned MatrixGraph::numEdges() const{
 	unsigned totalEdges = 0;
 
 	for(int i = 0; i < this->M.size(); i++){
-		for(int j = 0; j < this->M.at(i).size(); j++){
+		for(int j = i+1; j < this->M.at(i).size(); j++){
 			if(this->M.at(i).at(j) != 0)
 				totalEdges++;
 		}
 	}
 
 	return totalEdges;
-
+	
+	  //OR
+	  //return this->num_edges;
 }
 
 

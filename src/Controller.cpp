@@ -128,5 +128,9 @@ int main(int argc, char** argv) {
 
   //pair<int,int> p = testSpeedTSP(SB, 60, true);
 
+  //just to make the output wait for me to press enter
+  std::string str;
+  cin >> str;
+
   return 0;
 }
