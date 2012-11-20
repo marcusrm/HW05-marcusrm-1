@@ -76,6 +76,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Controller.cpp" />
+    <ClCompile Include="..\src\GraphAlgs.cpp" />
     <ClCompile Include="..\src\ListGraph.cpp" />
     <ClCompile Include="..\src\MatrixGraph.cpp" />
     <ClCompile Include="..\src\StarbucksMap.cpp" />

@@ -47,11 +47,6 @@ EdgeWeight MatrixGraph::weight(NodeID u, NodeID v) const{
 std::list<NWPair> MatrixGraph::getAdj(NodeID u) const{
 
 	std::list<NWPair>* nearby = new std::list<NWPair>;
-	
-	//NOTE!!! I don't know which node ID to use in the 
-	//NWPair first parameter. Currently I'm using 'v',
-	//since we're searching on 'u'. I feel like it lacks
-	//information though.
 
 	for(int i = 0; i < (M.at(u)).size(); i++){
 		NWPair current(i,((this->M).at(u)).at(i));
