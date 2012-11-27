@@ -6,6 +6,9 @@
 
 MatrixGraph::MatrixGraph(unsigned int num_nodes){
 
+	
+	this->num_edges = 0;
+	
 	//this->num_edges = num_nodes * (num_nodes - 1) / 2;
 
 	//create our matrix and zero it out

@@ -6,13 +6,16 @@ using namespace std;
 
 ListGraph::ListGraph(int num_nodes){
 
-	this->num_edges = num_nodes * (num_nodes - 1) / 2;
+	//Dr. Brinkman showed us the functionality of 'resize'
+	this->edgeList.resize(num_nodes);
 
-	this->edgeList = *(new std::vector<EList>());
+	this->num_edges = 0;
 
-	for(int i = 0; i < num_nodes; i++){
-		this->edgeList.push_back(*(new std::list<NWPair>));
-	}
+	//this->edgeList = *(new std::vector<EList>());
+
+	//for(int i = 0; i < num_nodes; i++){
+	//	this->edgeList.push_back(*(new std::list<NWPair>));
+	//}
 
 
 }
@@ -35,11 +38,11 @@ ListGraph::ListGraph(int num_nodes){
   // Inspectors
   EdgeWeight ListGraph::weight(NodeID u, NodeID v) const{
 
-	  std::list<NWPair> branch = this->edgeList.at(u);
+	 EList branch = this->edgeList.at(u);
 
-	  std::list<NWPair>::const_iterator iter;
+	 EList::const_iterator iter;
 
-	  for(iter = branch.begin(); iter != (branch.end()); iter++){
+	  for(iter = branch.begin(); iter != branch.end(); iter++){
 		  if(((NWPair)(*iter)).first == v)
 			  return ((NWPair)(*iter)).second;
 	  }
@@ -69,7 +72,7 @@ ListGraph::ListGraph(int num_nodes){
   unsigned ListGraph::numEdges() const{
 	int size = 0;
 
-	std::list<NWPair>::const_iterator iter;
+	EList::const_iterator iter;
 
 	for(int i = 0; i < this->edgeList.size(); i++){
 		for(iter = ((this->edgeList.at(i)).begin()); iter != (this->edgeList.at(i)).end(); iter++){
