@@ -1,4 +1,16 @@
-
+/*
+* 
+* Author: RJ Marcus
+* Course: CSE274
+* Professor: Dr. Bo Brinkman
+* Assignment: Traveling Salesman Problem (HW05)
+* 
+* 
+* 
+* Citations: Brian Breitsch told me I should search for a "next_permutation" 
+* algorithm in the c++ libraries to help me with my branch and bound.
+* 
+*/
 
 #include "GraphAlgs.h"
 #include <vector>
@@ -33,14 +45,14 @@ std::pair<std::vector<NodeID>, EdgeWeight> TSP(Graph* G){
 
 		distanceTraveled = 0;
 		for(int j = 0; j < num_nodes; j++){
-			//if(distanceTraveled > shortestDistance)
-			//	break;
-			//else{
+			if(distanceTraveled > shortestDistance)
+				break;
+			else{
 				if(j == num_nodes - 1)
 					distanceTraveled += G->weight(path.at(0),path.at(j));
 				else
 					distanceTraveled += G->weight(path.at(j+1),path.at(j));
-			//}
+			}
 		}
 
 		if(distanceTraveled < shortestDistance){
