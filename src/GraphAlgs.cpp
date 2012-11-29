@@ -1,20 +1,59 @@
 
 
 #include "GraphAlgs.h"
+#include <vector>
+#include <deque>
+#include <stack>
+#include <algorithm>
 
 
+int factorial(int num_nodes){
+	if(num_nodes == 1)
+		return 1;
+	else
+		return num_nodes * factorial(num_nodes-1);
+}
 
 std::pair<std::vector<NodeID>, EdgeWeight> TSP(Graph* G){
 
+	std::vector<NodeID> path;
+	EdgeWeight distanceTraveled = 0;
 
+	for(int i = 0; i < G->size(); i++)
+		path.push_back(i);
 
+	std::vector<NodeID> shortestPath;
+	EdgeWeight shortestDistance = DBL_MAX;
 
+	std::list<NWPair>::iterator iter;
 
+	int num_nodes = G->size();
 
+	for (int i = 0 ; i < factorial(num_nodes); i++){
 
+		distanceTraveled = 0;
+		for(int j = 0; j < num_nodes; j++){
+			//if(distanceTraveled > shortestDistance)
+			//	break;
+			//else{
+				if(j == num_nodes - 1)
+					distanceTraveled += G->weight(path.at(0),path.at(j));
+				else
+					distanceTraveled += G->weight(path.at(j+1),path.at(j));
+			//}
+		}
 
+		if(distanceTraveled < shortestDistance){
+			shortestPath = path;
+			shortestDistance = distanceTraveled;
+		}
 
+		next_permutation(path.begin(), path.end());
+	}
 
+	std::pair<std::vector<NodeID>,EdgeWeight> result(shortestPath,shortestDistance);
+
+	return result;
 
 
 

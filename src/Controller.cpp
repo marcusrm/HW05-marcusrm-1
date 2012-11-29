@@ -103,13 +103,13 @@ int main(int argc, char** argv) {
 
   // Apply each of the Tester methods to your MatrixGraph class.
   Tester T1(true);
-  T1.test_all();
+  //T1.test_all();
 
   cout << endl;
 
   // Apply each of the Tester methods to your ListGraph class.
   Tester T2(false);
-  T2.test_all();
+  //T2.test_all();
 
   /********************************
    * The following section is commented out so you can test your graph code
@@ -123,10 +123,10 @@ int main(int argc, char** argv) {
   // Uncomment the following three lines once your TSP function has been written
   StarbucksMap SB;
 
-  testSingleTSP(SB, 5, true);
-  testSingleTSP(SB, 5, false);
+  //testSingleTSP(SB, n, true);
+  //testSingleTSP(SB, n, false);
 
-  //pair<int,int> p = testSpeedTSP(SB, 60, true);
+  pair<int,int> p = testSpeedTSP(SB, 60, false);
 
   //just to make the output wait for me to press enter
   std::string str;

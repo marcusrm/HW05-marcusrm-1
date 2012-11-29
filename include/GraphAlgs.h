@@ -21,3 +21,5 @@
  */
 
 std::pair<std::vector<NodeID>, EdgeWeight> TSP(Graph* G);
+
+int factorial(int num_nodes);
