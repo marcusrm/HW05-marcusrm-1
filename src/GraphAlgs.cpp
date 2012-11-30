@@ -31,7 +31,7 @@ std::pair<std::vector<NodeID>, EdgeWeight> TSP(Graph* G){
 	std::vector<NodeID> path;
 	EdgeWeight distanceTraveled = 0;
 
-	for(int i = 0; i < G->size(); i++)
+	for(int i = 1; i < G->size(); i++)
 		path.push_back(i);
 
 	std::vector<NodeID> shortestPath;
@@ -40,18 +40,20 @@ std::pair<std::vector<NodeID>, EdgeWeight> TSP(Graph* G){
 	std::list<NWPair>::iterator iter;
 
 	int num_nodes = G->size();
+	
+	for (int i = 0 ; i < factorial(num_nodes-1); i++){
 
-	for (int i = 0 ; i < factorial(num_nodes); i++){
+		distanceTraveled = G->weight(0,path[0]);
 
-		distanceTraveled = 0;
-		for(int j = 0; j < num_nodes; j++){
-			if(distanceTraveled > shortestDistance)
+		for(int j = 0; j < num_nodes - 1; j++){
+			if(distanceTraveled > shortestDistance){
 				break;
+			}
 			else{
-				if(j == num_nodes - 1)
-					distanceTraveled += G->weight(path.at(0),path.at(j));
+				if(j == num_nodes - 2)
+					distanceTraveled += G->weight(0,path[j]);
 				else
-					distanceTraveled += G->weight(path.at(j+1),path.at(j));
+					distanceTraveled += G->weight(path[j+1],path[j]);
 			}
 		}
 
@@ -62,6 +64,10 @@ std::pair<std::vector<NodeID>, EdgeWeight> TSP(Graph* G){
 
 		next_permutation(path.begin(), path.end());
 	}
+
+ 
+	shortestPath.insert(shortestPath.begin(), 0);
+
 
 	std::pair<std::vector<NodeID>,EdgeWeight> result(shortestPath,shortestDistance);
 
