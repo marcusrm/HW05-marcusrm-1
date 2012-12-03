@@ -124,7 +124,7 @@ int main(int argc, char** argv) {
   StarbucksMap SB;
 
   testSingleTSP(SB, n, true);
-  //testSingleTSP(SB, n, false);
+  testSingleTSP(SB, n, false);
 
   //pair<int,int> p = testSpeedTSP(SB, 60, false);
 
