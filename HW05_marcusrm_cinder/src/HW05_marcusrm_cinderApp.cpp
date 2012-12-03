@@ -3,6 +3,8 @@
 // Assignment: HW05 - Traveling Salesman
 // Some code borrowed from the TSP testing files given to us by Dr. Bo Brinkman
 
+// This program satisfies requirements A, B, C, E
+
 
 #include "cinder/app/AppBasic.h"
 #include "cinder/gl/gl.h"

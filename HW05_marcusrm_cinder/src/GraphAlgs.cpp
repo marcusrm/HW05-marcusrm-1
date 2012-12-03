@@ -5,7 +5,7 @@
 * Professor: Dr. Bo Brinkman
 * Assignment: Traveling Salesman Problem (HW05)
 * 
-* 
+* This program satisfies requirements A, B, C, E
 * 
 * Citations: Brian Breitsch told me I should search for a "next_permutation" 
 * algorithm in the c++ libraries to help me with my branch and bound.
